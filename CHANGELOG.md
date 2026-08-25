@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.2.0 — 25 August 2026
+
+### Added
+
+- `references-slide` and optional `reference-columns` modes for concise selected bibliographies.
+- DOI-aware link styling and a documented new-tab anchor pattern for online decks.
+- `fieldnote-references.md`, a reusable reference-list template.
+- `acknowledgments-slide`, with dedicated areas for photographs, people, support, and logos.
+- `fieldnote-acknowledgments.md`, a reusable visual closing-slide template.
+- A deterministic one-, two-, three-, or four-image photographic mosaic with optional `top-focus` and `contain` treatments.
+- Starter-deck and pattern-library examples for both new archetypes.
+
+### Fixed
+
+- The starter deck now uses the acknowledgment template’s canonical `visuals`, `people`, `support`, and `logos` slots.
+- The online references example now uses the reusable reference template and its bottom note area.
+
+### Preserved
+
+- The version 0.1.1 overflow and Reveal display-state repairs.
+
 ## 0.1.1 — 25 August 2026
 
 ### Fixed

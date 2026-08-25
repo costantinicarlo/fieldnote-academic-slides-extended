@@ -42,4 +42,61 @@ RENDERING TEST PASSED <!-- element class="eyebrow" -->
 
 # Archetype slide after ordinary content
 
-All three slides should remain independently navigable. <!-- element class="lead" -->
+The first three regression slides should remain independently navigable. <!-- element class="lead" -->
+
+---
+
+<!-- .slide: class="acknowledgments-slide" -->
+<!-- slide template="[[fieldnote-academic/templates/fieldnote-acknowledgments]]" -->
+
+::: title
+## New archetype: acknowledgments
+:::
+
+::: visuals
+<div class="photo-placeholder">Hero photo</div>
+
+<div class="photo-placeholder">Photo two</div>
+
+<div class="photo-placeholder">Photo three</div>
+:::
+
+::: people
+### People
+
+- Contributor one
+- Contributor two
+
+<div class="ack-closing">Questions welcome</div>
+:::
+
+::: support
+### Support
+
+Grant · facility
+:::
+
+::: logos
+<span class="logo-placeholder">Logo A</span>
+<span class="logo-placeholder">Logo B</span>
+:::
+
+---
+
+<!-- .slide: class="references-slide" -->
+<!-- slide template="[[fieldnote-academic/templates/fieldnote-references]]" -->
+
+::: title
+## New archetype: clickable references
+:::
+
+::: references
+1. Wilkinson, M. D. et al. (2016). FAIR Guiding Principles. <a href="https://doi.org/10.1038/sdata.2016.18" target="_blank" rel="noopener noreferrer">10.1038/sdata.2016.18</a>
+
+2. Munafò, M. R. et al. (2017). A manifesto for reproducible science. <a href="https://doi.org/10.1038/s41562-016-0021" target="_blank" rel="noopener noreferrer">10.1038/s41562-016-0021</a>
+:::
+
+::: note
+Both links should be visible and clickable in browser presentation.
+:::
+

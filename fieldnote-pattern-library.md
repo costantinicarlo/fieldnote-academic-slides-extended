@@ -217,3 +217,92 @@ The qualification and implication. <!-- element class="lead" -->
 
 Thank you <!-- element class="subtitle" -->
 ```
+
+## 13. Acknowledgments and support slide
+
+```md
+<!-- .slide: class="acknowledgments-slide" -->
+<!-- slide template="[[fieldnote-academic/templates/fieldnote-acknowledgments]]" -->
+
+::: title
+## Acknowledgments · questions welcome
+:::
+
+::: visuals
+![[photos/lab-team.jpg]] <!-- element class="top-focus" -->
+
+![[photos/field-team.jpg]]
+
+![[photos/study-site.jpg]]
+:::
+
+::: people
+### With thanks to
+
+**Team**
+
+- Name · contribution
+- Name · contribution
+
+**Collaborators**
+
+- Institution or community
+
+<div class="ack-closing">Thank you</div>
+:::
+
+::: support
+### Support
+
+ANR project · grant number  
+Core facility · permit · data provider
+:::
+
+::: logos
+![[logos/institution.svg|140]]
+![[logos/funder.svg|140]]
+![[logos/partner.svg|140]]
+:::
+```
+
+The `visuals` area forms a responsive mosaic: one image fills it, two sit side by side, three use one wide image above two smaller images, and four form a 2 × 2 grid. Keep each image on its own paragraph. Photos are cropped to fill their cells; add `top-focus` when faces are near the upper edge, or `contain` when cropping is undesirable. Logos are contained in neutral white tiles so marks with different proportions can coexist cleanly.
+
+## 14. Clickable selected references
+
+Treat the preceding acknowledgments slide as the live stopping point; place this bibliography afterward as an online appendix.
+
+
+Single-column version for approximately three to five full references:
+
+```md
+<!-- .slide: class="references-slide" -->
+<!-- slide template="[[fieldnote-academic/templates/fieldnote-references]]" -->
+
+::: title
+## Selected references
+:::
+
+::: references
+1. Wilkinson, M. D. et al. (2016). The FAIR Guiding Principles for scientific data management and stewardship. *Scientific Data* **3**, 160018. <a href="https://doi.org/10.1038/sdata.2016.18" target="_blank" rel="noopener noreferrer">10.1038/sdata.2016.18</a>
+
+2. Munafò, M. R. et al. (2017). A manifesto for reproducible science. *Nature Human Behaviour* **1**, 0021. <a href="https://doi.org/10.1038/s41562-016-0021" target="_blank" rel="noopener noreferrer">10.1038/s41562-016-0021</a>
+:::
+
+::: note
+Selected references only; split a long bibliography across multiple slides.
+:::
+```
+
+Add `reference-columns` for approximately six to ten concise references:
+
+```md
+<!-- .slide: class="references-slide reference-columns" -->
+```
+
+A normal Markdown link is also valid:
+
+```md
+[10.1038/sdata.2016.18](https://doi.org/10.1038/sdata.2016.18)
+```
+
+The raw HTML form shown above adds `target="_blank"`, so an online reader does not leave the slideshow when following the DOI.

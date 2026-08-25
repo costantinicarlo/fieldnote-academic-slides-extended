@@ -1,0 +1,1 @@
+Minimalist academic slide theme for Obsidian Slides Extended and Reveal.js — designed for scientific talks, teaching, figures, code, acknowledgments, and clickable DOI references.

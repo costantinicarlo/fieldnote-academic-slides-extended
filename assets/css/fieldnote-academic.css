@@ -1,11 +1,13 @@
 /*
  * Fieldnote Academic — a minimalist academic theme for Slides Extended
- * Version 0.1.1 — 2026-08-25
+ * Version 0.2.0 — 2026-08-25
  *
  * Design goals:
  * - clear from the back of a teaching room
  * - figure-, table-, equation-, and code-friendly
  * - entirely local: no remote fonts or other network dependencies
+ * - clickable scholarly references for online decks
+ * - visual acknowledgments for people, partners, and funders
  * - restrained visual hierarchy rather than decorative effects
  */
 
@@ -607,14 +609,160 @@
   border-top: 2px solid var(--fn-accent);
 }
 
+
+/* ---------- Online references ---------- */
+
+.reveal .references-slide .reference-intro {
+  max-width: 58em;
+  margin: 0.08em 0 0.55em;
+  color: var(--fn-muted);
+  font-size: 0.64em;
+  line-height: 1.35;
+}
+
+.reveal .references-slide ol,
+.reveal .references-slide ul,
+.reveal .fn-reference-area ol,
+.reveal .fn-reference-area ul {
+  margin: 0.16em 0 0.48em 1.22em;
+  font-size: 0.64em;
+  line-height: 1.32;
+}
+
+.reveal .references-slide li,
+.reveal .fn-reference-area li {
+  margin: 0 0 0.62em;
+  padding-left: 0.24em;
+  break-inside: avoid;
+  break-inside: avoid-column;
+  page-break-inside: avoid;
+}
+
+.reveal .references-slide.reference-columns ol,
+.reveal .references-slide.reference-columns ul {
+  column-count: 2;
+  column-gap: 2.55em;
+  column-rule: 1px solid var(--fn-rule);
+}
+
+.reveal .references-slide a[href*="//doi.org/"],
+.reveal .fn-reference-area a[href*="//doi.org/"] {
+  display: inline-block;
+  margin-left: 0.22em;
+  padding: 0.07em 0.38em;
+  border: 1px solid color-mix(in srgb, var(--fn-accent), transparent 58%);
+  border-radius: 999px;
+  background: var(--fn-paper);
+  color: var(--fn-accent-dark);
+  font-family: var(--r-code-font);
+  font-size: 0.82em;
+  font-weight: 650;
+  line-height: 1.35;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.reveal .references-slide a[href*="//doi.org/"]::after,
+.reveal .fn-reference-area a[href*="//doi.org/"]::after {
+  content: " ↗";
+  font-family: var(--r-main-font);
+  font-size: 0.9em;
+}
+
+.reveal .references-slide a[href*="//doi.org/"]:hover,
+.reveal .references-slide a[href*="//doi.org/"]:focus,
+.reveal .fn-reference-area a[href*="//doi.org/"]:hover,
+.reveal .fn-reference-area a[href*="//doi.org/"]:focus {
+  border-color: var(--fn-accent);
+  background: var(--fn-accent-pale);
+}
+
+.reveal .references-slide cite,
+.reveal .fn-reference-area cite {
+  color: var(--fn-ink);
+  font-style: normal;
+  font-weight: 670;
+}
+
+.reveal .references-slide .reference-note {
+  margin-top: 0.55em;
+  color: var(--fn-muted);
+  font-size: 0.5em;
+  line-height: 1.3;
+}
+
+/* ---------- Acknowledgments and support ---------- */
+
+.reveal .acknowledgments-slide .fn-template-title {
+  border-bottom-width: 2px;
+  border-bottom-color: var(--fn-accent);
+}
+
+.reveal .ack-closing {
+  margin-top: 0.75em;
+  color: var(--fn-accent-dark);
+  font-size: 0.9em;
+  font-weight: 720;
+  letter-spacing: -0.01em;
+}
+
+.reveal .photo-placeholder {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+  border: 2px dashed #aeb9b3;
+  border-radius: var(--fn-radius);
+  background: var(--fn-paper);
+  color: var(--fn-muted);
+  font-size: 0.58em;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.reveal .logo-placeholder {
+  box-sizing: border-box;
+  display: inline-flex;
+  min-width: 108px;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border: 1px solid var(--fn-rule);
+  border-radius: 8px;
+  background: var(--fn-paper);
+  color: var(--fn-muted);
+  font-size: 14px;
+  font-weight: 720;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 /* ---------- Slide archetypes ---------- */
 
 .reveal .slides section.title-slide,
 .reveal .slides section.section-slide,
 .reveal .slides section.takeaway-slide,
-.reveal .slides section.questions-slide {
+.reveal .slides section.questions-slide,
+.reveal .slides section.references-slide,
+.reveal .slides section.acknowledgments-slide {
   width: 100%;
   height: 100%;
+}
+
+.reveal .slides section.references-slide {
+  background: var(--fn-canvas) !important;
+}
+
+.reveal .slides section.acknowledgments-slide {
+  background: var(--fn-canvas) !important;
+  box-shadow: inset 0 8px 0 var(--fn-accent);
 }
 
 .reveal .slides section.title-slide {
@@ -809,6 +957,167 @@
   font-size: 16px !important;
   line-height: 1.25;
   text-align: left;
+}
+
+
+.reveal .fn-reference-area {
+  box-sizing: border-box;
+  display: block !important;
+  overflow: visible;
+  padding: 0.08em 0.35em 0 0;
+  text-align: left;
+}
+
+.reveal .fn-ack-visuals {
+  box-sizing: border-box;
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: minmax(0, 1fr);
+  gap: 10px;
+  align-items: stretch !important;
+  justify-content: stretch !important;
+  justify-items: stretch;
+  overflow: hidden;
+  border-radius: var(--fn-radius);
+  background: var(--fn-surface);
+  text-align: center;
+}
+
+.reveal .fn-ack-visuals > * {
+  min-width: 0;
+  min-height: 0;
+}
+
+/* One image fills the area; three images become one hero plus two supports. */
+.reveal .fn-ack-visuals > :only-child,
+.reveal .fn-ack-visuals > :first-child:nth-last-child(3) {
+  grid-column: 1 / -1;
+}
+
+.reveal .fn-ack-visuals > p {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.reveal .fn-ack-visuals img,
+.reveal .fn-ack-visuals video {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: none !important;
+  border-radius: var(--fn-radius);
+  object-fit: cover !important;
+  object-position: center;
+}
+
+.reveal .fn-ack-visuals img.contain,
+.reveal .fn-ack-visuals video.contain {
+  padding: 8px;
+  background: var(--fn-paper);
+  object-fit: contain !important;
+}
+
+.reveal .fn-ack-visuals img.top-focus,
+.reveal .fn-ack-visuals video.top-focus {
+  object-position: center top;
+}
+
+.reveal .fn-ack-visuals .figure-placeholder,
+.reveal .fn-ack-visuals .photo-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.reveal .fn-ack-people {
+  box-sizing: border-box;
+  display: block !important;
+  overflow: hidden;
+  padding: 0.66em 0.76em;
+  border: 1px solid var(--fn-rule);
+  border-top: 5px solid var(--fn-accent);
+  border-radius: var(--fn-radius);
+  background: var(--fn-paper);
+  font-size: 0.66em;
+  line-height: 1.27;
+  text-align: left;
+}
+
+.reveal .fn-ack-people h3,
+.reveal .fn-ack-people h4 {
+  margin: 0 0 0.34em;
+}
+
+.reveal .fn-ack-people ul,
+.reveal .fn-ack-people ol {
+  margin-top: 0.18em;
+  margin-bottom: 0.44em;
+}
+
+.reveal .fn-ack-people li {
+  margin: 0.14em 0;
+}
+
+.reveal .fn-ack-support {
+  box-sizing: border-box;
+  display: block !important;
+  overflow: hidden;
+  padding: 0.52em 0.7em;
+  border-left: 5px solid var(--fn-warm);
+  border-radius: 0 var(--fn-radius) var(--fn-radius) 0;
+  background: var(--fn-warm-pale);
+  color: var(--fn-ink);
+  font-size: 0.54em;
+  line-height: 1.27;
+  text-align: left;
+}
+
+.reveal .fn-ack-support h3,
+.reveal .fn-ack-support h4 {
+  margin: 0 0 0.26em;
+  color: var(--fn-warm);
+}
+
+.reveal .fn-ack-support p:last-child {
+  margin-bottom: 0;
+}
+
+.reveal .fn-logo-wall {
+  box-sizing: border-box;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-content: center;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  overflow: hidden;
+  padding: 0.15em 0;
+  text-align: right;
+}
+
+.reveal .fn-logo-wall > p {
+  display: contents;
+}
+
+.reveal .fn-logo-wall a {
+  display: inline-flex;
+  align-items: center;
+}
+
+.reveal .fn-logo-wall img {
+  box-sizing: border-box;
+  width: auto !important;
+  height: auto !important;
+  max-width: 150px !important;
+  max-height: 66px !important;
+  padding: 8px 10px;
+  border: 1px solid var(--fn-rule);
+  border-radius: 8px;
+  background: var(--fn-paper);
+  object-fit: contain;
 }
 
 /* ---------- Reveal controls ---------- */

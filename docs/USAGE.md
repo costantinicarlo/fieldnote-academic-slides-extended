@@ -12,7 +12,7 @@ It is designed for:
 - conference and seminar talks;
 - research-group presentations;
 - figure-, map-, table-, equation-, Mermaid-, and code-heavy material;
-- both live presentation and HTML/PDF export.
+- both live presentation and online/HTML/PDF publication.
 
 No network connection is required. The font stack uses locally available system fonts and degrades gracefully across macOS, Windows, and Linux.
 
@@ -24,17 +24,37 @@ fieldnote-academic/
 │   └── css/
 │       └── fieldnote-academic.css
 ├── templates/
+│   ├── fieldnote-acknowledgments.md
 │   ├── fieldnote-figure-focus.md
+│   ├── fieldnote-references.md
 │   └── fieldnote-two-column.md
 ├── CHANGELOG.md
+├── acknowledgments-preview.png
 ├── fieldnote-pattern-library.md
 ├── fieldnote-render-smoke-test.md
 ├── fieldnote-starter-deck.md
 ├── preview-contact-sheet.png
+├── references-preview.png
 └── README.md
 ```
 
-The CSS theme is sufficient on its own. The two Markdown templates are optional conveniences for layouts that otherwise require repetitive grid markup. The contact sheet is an illustrative design preview; exact line breaks depend on the fonts installed on the presenting computer.
+The CSS theme is sufficient on its own. The four Markdown templates are optional conveniences for layouts that otherwise require repetitive grid markup. The contact sheet and two closing-slide previews are illustrative; exact line breaks depend on the fonts installed on the presenting computer.
+
+## Version 0.2.0 additions
+
+Version 0.2.0 adds a visual acknowledgments/support archetype and a clickable selected-references archetype. The earlier rendering repair remains intact.
+
+### Online references
+
+Use ordinary Markdown links for DOI resolution, or raw HTML anchors with `target="_blank"` to open a DOI in a new tab. The theme recognizes links whose destination contains `doi.org` and renders them as discreet DOI pills. The Slides Extended `enableLinks` option is not required for external DOI links; that option governs Obsidian wikilinks.
+
+Use a single column for roughly three to five full citations. Add `reference-columns` for approximately six to ten concise entries. Longer bibliographies should be split over multiple slides rather than reduced below comfortable online reading size.
+
+### Acknowledgments and support
+
+The new acknowledgments template reserves a large photographic mosaic, a panel for people and collaborators, a support panel for grants and facilities, and a flexible wall of institutional or funder logos. Keep each photograph on its own Markdown paragraph. One photograph fills the area; two sit side by side; three become one wide image above two supporting images; four form a 2 × 2 mosaic.
+
+A practical dual-use sequence is: take-home message → acknowledgments/questions for the live stopping point → selected references for online readers.
 
 ## Version 0.1.1 rendering fix
 
@@ -44,7 +64,7 @@ Replace the earlier CSS file with the version included here. The Markdown deck a
 
 ### Verify the repair
 
-Open `fieldnote-render-smoke-test.md` in Slides Extended. It deliberately places one ordinary slide between two special archetype slides. All three slides should show their full content and remain independently navigable in both preview and browser presentation.
+Open `fieldnote-render-smoke-test.md` in Slides Extended. Its first three slides preserve the original clipping regression test; two additional slides exercise the acknowledgments and clickable-references archetypes. All five should remain independently navigable in both preview and browser presentation.
 
 A restart of Obsidian is normally unnecessary, but close and reopen the presentation preview after replacing the CSS so the embedded browser reloads the stylesheet.
 
@@ -107,6 +127,9 @@ Available slide classes:
 | `full-figure` | Allows a figure to use nearly all slide height |
 | `takeaway-slide` | Pale-teal conclusion slide |
 | `questions-slide` | Dark closing/discussion slide |
+| `acknowledgments-slide` | Visual closing slide for people, photographs, support, and logos |
+| `references-slide` | Selected bibliography with DOI-aware link styling |
+| `reference-columns` | Two-column mode for a references slide |
 | `dark-slide` | Generic light-on-dark content slide |
 | `centered` | Centers the slide’s principal content |
 | `compact` | Moderately reduces content scale |
@@ -130,6 +153,11 @@ Useful element classes:
 | `badge` | Small categorical label |
 | `key-number` | Large numerical result |
 | `key-label` | Label paired with a key number |
+| `ack-closing` | Closing phrase inside the acknowledgments people panel |
+| `photo-placeholder` | Neutral placeholder for a future team or field photograph |
+| `logo-placeholder` | Neutral placeholder for a future institutional or funder logo |
+| `top-focus` | Keeps the upper part of a photograph visible when the mosaic crops it |
+| `contain` | Fits an image without cropping inside the acknowledgments mosaic |
 
 Element classes use this syntax:
 
@@ -190,6 +218,68 @@ Figure-focus layout:
 Optional source line
 :::
 ```
+
+## Acknowledgments template
+
+```md
+<!-- .slide: class="acknowledgments-slide" -->
+<!-- slide template="[[fieldnote-academic/templates/fieldnote-acknowledgments]]" -->
+
+::: title
+## Acknowledgments · questions welcome
+:::
+
+::: visuals
+![[photos/lab-team.jpg]] <!-- element class="top-focus" -->
+
+![[photos/field-team.jpg]]
+
+![[photos/study-site.jpg]]
+:::
+
+::: people
+### With thanks to
+
+- Person · contribution
+- Partner · contribution
+
+<div class="ack-closing">Thank you</div>
+:::
+
+::: support
+### Support
+
+Programme · grant identifier · facility
+:::
+
+::: logos
+![[logos/institution.svg|140]]
+![[logos/funder.svg|140]]
+:::
+```
+
+Photographs use `object-fit: cover` so the mosaic is visually full. Add `top-focus` to a people photograph when faces are near its upper edge, or `contain` when cropping would remove important content.
+
+## Selected-references template
+
+```md
+<!-- .slide: class="references-slide reference-columns" -->
+<!-- slide template="[[fieldnote-academic/templates/fieldnote-references]]" -->
+
+::: title
+## Selected references
+:::
+
+::: references
+1. Author, A. et al. (Year). Article title. *Journal* **volume**, pages. <a href="https://doi.org/10.xxxx/example" target="_blank" rel="noopener noreferrer">10.xxxx/example</a>
+:::
+
+::: note
+Selected references only.
+:::
+```
+
+Use a real DOI in place of the illustrative value. Remove `reference-columns` for a single-column list. The raw HTML anchor opens a DOI in a new tab; an ordinary Markdown link remains fully valid when same-tab navigation is acceptable.
 
 ## Compatibility with older custom snippets
 

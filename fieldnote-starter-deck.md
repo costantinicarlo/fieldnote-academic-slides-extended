@@ -193,11 +193,80 @@ State what the evidence changes, preserve the important qualification, and make 
 
 ---
 
-<!-- slide bg="#132927" -->
-<!-- .slide: class="questions-slide" -->
+<!-- .slide: class="acknowledgments-slide" -->
+<!-- slide template="[[fieldnote-academic/templates/fieldnote-acknowledgments]]" -->
 
-# Questions
+::: title
+ACKNOWLEDGMENTS · QUESTIONS WELCOME <!-- element class="eyebrow" -->
+## The work is collective
+:::
 
-Thank you <!-- element class="subtitle" -->
+::: visuals
+<div class="photo-placeholder">Principal laboratory or group photograph</div>
 
-**Possible discussion prompts:** mechanism · uncertainty · generality · next experiment <!-- element class="discussion-prompts" -->
+<div class="photo-placeholder">Field team or collaborating group</div>
+
+<div class="photo-placeholder">Study system, site, or community</div>
+:::
+
+::: people
+### With thanks to
+
+**Field and laboratory team**
+
+- Name · role or contribution
+- Name · role or contribution
+- Name · role or contribution
+
+**Collaborators and communities**
+
+- Partner laboratory
+- Field teams and study participants
+
+<div class="ack-closing">Thank you</div>
+:::
+
+::: support
+### Support
+
+Funding programme · grant identifier  
+Facilities · permits · data providers
+:::
+
+::: logos
+<div class="logo-placeholder">Institution</div>
+<div class="logo-placeholder">Funder</div>
+<div class="logo-placeholder">Partner</div>
+<div class="logo-placeholder">Facility</div>
+:::
+
+<!-- Replace placeholders with local image embeds. Keep required grant wording verbatim. -->
+
+---
+
+<!-- LIVE ENDPOINT: stop on the previous slide during a room presentation. -->
+<!-- .slide: class="references-slide reference-columns" -->
+<!-- slide template="[[fieldnote-academic/templates/fieldnote-references]]" -->
+
+::: title
+ONLINE APPENDIX · SELECTED READING <!-- element class="eyebrow" -->
+## Selected references
+:::
+
+::: references
+1. DePristo, M. A. et al. (2011). <cite>A framework for variation discovery and genotyping using next-generation DNA sequencing data</cite>. *Nature Genetics* **43**, 491–498. <a href="https://doi.org/10.1038/ng.806" target="_blank" rel="noopener noreferrer">doi:10.1038/ng.806</a>
+
+2. McKenna, A. et al. (2010). <cite>The Genome Analysis Toolkit: a MapReduce framework for analyzing next-generation DNA sequencing data</cite>. *Genome Research* **20**, 1297–1303. <a href="https://doi.org/10.1101/gr.107524.110" target="_blank" rel="noopener noreferrer">doi:10.1101/gr.107524.110</a>
+
+3. Pearl, J. (1995). <cite>Causal diagrams for empirical research</cite>. *Biometrika* **82**, 669–688. <a href="https://doi.org/10.1093/biomet/82.4.669" target="_blank" rel="noopener noreferrer">doi:10.1093/biomet/82.4.669</a>
+
+4. Nakagawa, S. & Schielzeth, H. (2013). <cite>A general and simple method for obtaining R² from generalized linear mixed-effects models</cite>. *Methods in Ecology and Evolution* **4**, 133–142. <a href="https://doi.org/10.1111/j.2041-210X.2012.00261.x" target="_blank" rel="noopener noreferrer">doi:10.1111/j.2041-210X.2012.00261.x</a>
+
+5. Benjamini, Y. & Hochberg, Y. (1995). <cite>Controlling the false discovery rate: a practical and powerful approach to multiple testing</cite>. *Journal of the Royal Statistical Society: Series B* **57**, 289–300. <a href="https://doi.org/10.1111/j.2517-6161.1995.tb02031.x" target="_blank" rel="noopener noreferrer">doi:10.1111/j.2517-6161.1995.tb02031.x</a>
+
+6. Wilkinson, M. D. et al. (2016). <cite>The FAIR Guiding Principles for scientific data management and stewardship</cite>. *Scientific Data* **3**, 160018. <a href="https://doi.org/10.1038/sdata.2016.18" target="_blank" rel="noopener noreferrer">doi:10.1038/sdata.2016.18</a>
+:::
+
+::: note
+Selected examples only. DOI links open in a new browser tab; split a longer bibliography across additional slides.
+:::
