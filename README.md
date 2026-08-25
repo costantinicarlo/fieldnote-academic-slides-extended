@@ -8,9 +8,9 @@ It is designed for scientific and university presentations where the content sho
 
 ## Design principles
 
-Fieldnote Academic uses a warm-white canvas, graphite typography, a restrained deep-teal accent, generous whitespace, and dark section dividers. The system is intentionally quiet: it provides visual hierarchy without competing with figures, data, or argumentation.
+Fieldnote Academic uses a warm-white canvas, graphite typography, a restrained deep-teal accent, generous whitespace, and dark section dividers. It provides visual hierarchy without competing with scientific content.
 
-The initial release includes title slides, section dividers, ordinary content slides, figure-focused layouts, comparison layouts, take-home slides, questions slides, compact/dense variants, tables, equations, code, callouts, quotations, captions, and source lines.
+Version **0.1.1** fixes a rendering regression in ordinary Slides Extended sections caused by slide-level overflow clipping and removes a display override that could interfere with Reveal.js slide state management.
 
 ## Quick start
 
@@ -26,24 +26,22 @@ center: false
 
 3. Use `fieldnote-starter-deck.md` as a starting point and `fieldnote-pattern-library.md` as a copy-and-paste layout reference.
 
-See [docs/USAGE.md](docs/USAGE.md) for installation details and customization guidance.
+See [docs/USAGE.md](docs/USAGE.md) for installation details and diagnostics.
 
 ## Repository contents
 
 - `assets/css/fieldnote-academic.css` — the theme
-- `templates/` — optional Slides Extended layout templates
+- `templates/` — optional layout templates
 - `fieldnote-starter-deck.md` — example deck
 - `fieldnote-pattern-library.md` — reusable slide patterns
+- `fieldnote-render-smoke-test.md` — regression test deck
 - `preview-contact-sheet.png` — visual overview
+- `CHANGELOG.md` — version history
 - `docs/USAGE.md` — detailed usage notes
-
-## Compatibility
-
-Fieldnote Academic targets Slides Extended and the Reveal.js runtime bundled by that plugin. It is intended to remain local-first: the theme does not require remote fonts, JavaScript, or external design dependencies.
 
 ## Versioning
 
-This repository uses semantic version tags. Historical versions can be checked out directly by tag.
+Semantic version tags preserve each published state of the theme.
 
 ## License
 

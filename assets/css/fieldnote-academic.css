@@ -1,6 +1,6 @@
 /*
  * Fieldnote Academic — a minimalist academic theme for Slides Extended
- * Version 0.1.0 — 2026-08-25
+ * Version 0.1.1 — 2026-08-25
  *
  * Design goals:
  * - clear from the back of a teaching room
@@ -86,7 +86,13 @@
 
 .reveal .slides section {
   box-sizing: border-box !important;
-  overflow: hidden !important;
+
+  /*
+   * Slides Extended wraps every slide in an absolutely positioned, full-canvas
+   * grid. That grid does not contribute to the section's intrinsic height.
+   * Clipping the section therefore hides ordinary slide contents completely.
+   */
+  overflow: visible !important;
 }
 
 .reveal .slides section > :first-child {
@@ -607,12 +613,8 @@
 .reveal .slides section.section-slide,
 .reveal .slides section.takeaway-slide,
 .reveal .slides section.questions-slide {
-  display: flex !important;
   width: 100%;
   height: 100%;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
 }
 
 .reveal .slides section.title-slide {

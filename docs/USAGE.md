@@ -26,13 +26,27 @@ fieldnote-academic/
 ├── templates/
 │   ├── fieldnote-figure-focus.md
 │   └── fieldnote-two-column.md
+├── CHANGELOG.md
 ├── fieldnote-pattern-library.md
+├── fieldnote-render-smoke-test.md
 ├── fieldnote-starter-deck.md
 ├── preview-contact-sheet.png
 └── README.md
 ```
 
 The CSS theme is sufficient on its own. The two Markdown templates are optional conveniences for layouts that otherwise require repetitive grid markup. The contact sheet is an illustrative design preview; exact line breaks depend on the fonts installed on the presenting computer.
+
+## Version 0.1.1 rendering fix
+
+Version 0.1.0 incorrectly applied `overflow: hidden` to every Reveal slide section. Slides Extended places each slide inside an absolutely positioned full-canvas grid, so ordinary sections have no intrinsic content height; clipping those sections made the slide background visible while hiding all slide content. Version 0.1.1 keeps section overflow visible and no longer overrides Reveal's display state for the four special slide archetypes.
+
+Replace the earlier CSS file with the version included here. The Markdown deck and optional templates remain compatible and require no content changes.
+
+### Verify the repair
+
+Open `fieldnote-render-smoke-test.md` in Slides Extended. It deliberately places one ordinary slide between two special archetype slides. All three slides should show their full content and remain independently navigable in both preview and browser presentation.
+
+A restart of Obsidian is normally unnecessary, but close and reopen the presentation preview after replacing the CSS so the embedded browser reloads the stylesheet.
 
 ## Installation
 
